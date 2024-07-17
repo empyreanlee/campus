@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81465583-961f-4d75-9f01-b185178e35a0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/StudentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/assign/campus/trial.fxml" afterDir="false" />
+    <list default="true" id="81465583-961f-4d75-9f01-b185178e35a0" name="Changes" comment="semester">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/assign/campus/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/assign/campus/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/assign/campus/directory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/directory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/assign/campus/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/assign/campus/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/assign/campus/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/StudentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/assign/campus/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/assign/campus/home.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -131,8 +126,17 @@
       <workItem from="1720453872564" duration="17869000" />
       <workItem from="1720780695151" duration="8982000" />
       <workItem from="1721124691295" duration="9386000" />
-      <workItem from="1721200003964" duration="4232000" />
+      <workItem from="1721200003964" duration="12016000" />
     </task>
+    <task id="LOCAL-00001" summary="semester">
+      <option name="closed" value="true" />
+      <created>1721217165620</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1721217165620</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,5 +144,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="semester" />
+    <option name="LAST_COMMIT_MESSAGE" value="semester" />
   </component>
 </project>

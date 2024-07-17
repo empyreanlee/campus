@@ -6,8 +6,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="551.0" prefWidth="747.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.assign.campus.StudentController">
-   <VBox layoutX="-1.0" prefHeight="445.0" prefWidth="94.0" AnchorPane.leftAnchor="-1.0">
+<AnchorPane prefHeight="551.0" prefWidth="763.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.assign.campus.StudentController">
+   <VBox layoutX="-1.0" prefHeight="486.0" prefWidth="119.0" AnchorPane.leftAnchor="-1.0">
       <padding>
          <Insets bottom="20.0" left="5" right="5" top="20" />
       </padding>
@@ -16,36 +16,48 @@
             <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
          </padding>
          <VBox.margin>
-            <Insets left="2.0" />
+            <Insets left="5.0" />
          </VBox.margin>
+         <font>
+            <Font name="Tahoma" size="12.0" />
+         </font>
       </Label>
       <Label prefHeight="23.0" prefWidth="76.0" text="Home">
          <padding>
             <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
          </padding>
          <VBox.margin>
-            <Insets top="20.0" />
+            <Insets left="5.0" top="20.0" />
          </VBox.margin>
+         <font>
+            <Font name="Tahoma" size="12.0" />
+         </font>
       </Label>
       <Label prefHeight="23.0" prefWidth="76.0" text="Fine">
          <padding>
             <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
          </padding>
          <VBox.margin>
-            <Insets top="20.0" />
+            <Insets left="5.0" top="20.0" />
          </VBox.margin>
+         <font>
+            <Font name="Tahoma" size="12.0" />
+         </font>
       </Label>
       <Label prefHeight="23.0" prefWidth="76.0" text="Fine">
          <padding>
             <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
          </padding>
          <VBox.margin>
-            <Insets top="20.0" />
+            <Insets left="5.0" top="20.0" />
          </VBox.margin>
+         <font>
+            <Font name="Tahoma" size="12.0" />
+         </font>
       </Label>
    </VBox>
-   <Button layoutX="18.0" layoutY="447.0" mnemonicParsing="false" text="Button" />
-   <BorderPane layoutX="89.0" layoutY="-1.0" prefHeight="108.0" prefWidth="585.0">
+   <Button layoutX="22.0" layoutY="495.0" mnemonicParsing="false" text="Button" />
+   <BorderPane layoutX="123.0" prefHeight="108.0" prefWidth="585.0">
       <left>
          <Label prefHeight="28.0" prefWidth="308.0" text="Not Yet Registered for our our awesome courses" BorderPane.alignment="TOP_LEFT">
             <BorderPane.margin>
@@ -57,13 +69,16 @@
          </Label>
       </left>
       <top>
-         <Label prefHeight="42.0" prefWidth="268.0" text="Welcome My Nigga!" BorderPane.alignment="TOP_LEFT">
+         <Label prefHeight="42.0" prefWidth="268.0" text="Welcome My ..." BorderPane.alignment="TOP_LEFT">
             <padding>
                <Insets left="5.0" />
             </padding>
             <BorderPane.margin>
                <Insets left="5.0" top="5.0" />
             </BorderPane.margin>
+            <font>
+               <Font name="Tahoma" size="12.0" />
+            </font>
          </Label>
       </top>
       <center>
@@ -83,52 +98,46 @@
          </Button>
       </center>
    </BorderPane>
-   <GridPane fx:id="gridPane" gridLinesVisible="true" layoutX="101.0" layoutY="113.0" prefHeight="347.0" prefWidth="579.0" AnchorPane.leftAnchor="101.0">
+   <Button layoutX="350.0" layoutY="482.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: skyblue;" text="Submit">
+      <font>
+         <Font name="Tahoma" size="12.0" />
+      </font></Button>
+   <GridPane gridLinesVisible="true" layoutX="123.0" layoutY="108.0" prefHeight="363.0" prefWidth="619.0">
      <columnConstraints>
        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
      </columnConstraints>
      <rowConstraints>
-         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
      </rowConstraints>
       <children>
-         <ComboBox fx:id="semester1" prefWidth="150.0" promptText="Semester 1" GridPane.rowIndex="1">
-            
+         <ListView fx:id="listView2" prefHeight="99.0" prefWidth="310.0" style="-fx-border-style: rounded;" GridPane.columnIndex="1" GridPane.rowIndex="1">
             <GridPane.margin>
-               <Insets left="10.0" />
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
             </GridPane.margin>
-         </ComboBox>
-         <ComboBox fx:id="semester2" layoutX="10.0" layoutY="112.0" onAction="#onRegisterButtonClick" prefWidth="150.0" promptText="Semester 2" GridPane.columnIndex="1" GridPane.rowIndex="1">
-            <GridPane.margin>
-               <Insets left="10.0" />
-            </GridPane.margin>
-         </ComboBox>
-         <Label prefHeight="73.0" prefWidth="256.0" text="Label" GridPane.rowIndex="3">
+         </ListView>
+         <Label prefHeight="73.0" prefWidth="256.0" text="Label">
             <padding>
                <Insets left="5.0" />
             </padding>
-            <GridPane.margin>
-               <Insets left="7.0" />
-            </GridPane.margin></Label>
-         <Label layoutX="10.0" layoutY="240.0" prefHeight="73.0" prefWidth="256.0" text="Label">
-            <GridPane.margin>
-               <Insets left="5.0" />
-            </GridPane.margin>
          </Label>
-         <Label layoutX="10.0" layoutY="12.0" prefHeight="73.0" prefWidth="256.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3">
-            <GridPane.margin>
-               <Insets left="7.0" />
-            </GridPane.margin>
+         <Label layoutX="10.0" layoutY="34.0" prefHeight="73.0" prefWidth="256.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
             <padding>
                <Insets left="5.0" />
-            </padding></Label>
+            </padding>
+         </Label>
+         <Label layoutX="10.0" layoutY="276.0" prefHeight="73.0" prefWidth="256.0" text="Label" GridPane.rowIndex="2">
+            <padding>
+               <Insets left="5.0" />
+            </padding>
+         </Label>
+         <ListView fx:id="listView1" layoutX="10.0" layoutY="131.0" prefHeight="99.0" prefWidth="310.0" GridPane.rowIndex="1">
+            <GridPane.margin>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </GridPane.margin>
+         </ListView>
       </children>
    </GridPane>
-   <Button layoutX="350.0" layoutY="482.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: skyblue;" text="Submit">
-      <font>
-         <Font name="Tahoma" size="12.0" />
-      </font></Button>
 </AnchorPane>
