@@ -13,10 +13,11 @@ public class directory {
         Boolean checkPassword(String plainPassword, String hashedPassword);
     }
     public static class BCryptPasswordUtil implements PasswordUtil{
-
+        @Override
         public String encryptPassword(String password) {
             return BCrypt.hashpw(password, BCrypt.gensalt(12));
         }
+        @Override
         public Boolean checkPassword(String plainPassword, String hashedPassword){
             return BCrypt.checkpw(plainPassword,hashedPassword);
         }
@@ -36,7 +37,7 @@ public class directory {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, nameval);
             stmt.setString(2, emailval);
-            stmt.setString(3, hashedPassword);
+            stmt.setString(3, hashedPassword );
             stmt.setString(4, hashedPassword);
             stmt.executeUpdate();
             stmt.close();

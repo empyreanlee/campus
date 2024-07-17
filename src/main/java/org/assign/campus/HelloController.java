@@ -4,12 +4,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 
 import java.sql.SQLException;
 
 import static org.assign.campus.directory.insertUser;
 
 public class HelloController {
+    public Button register;
+    public GridPane gridPane;
     @FXML
     private Label welcomeText, textfield, text;
     @FXML
@@ -17,11 +20,6 @@ public class HelloController {
     @FXML
     private Button submit;
 
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-        textfield.setText(textField.getText());
-    }
     @FXML
     protected void onButtonClick() {
         String nameval = name.getText();
