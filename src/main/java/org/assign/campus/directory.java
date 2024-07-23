@@ -5,6 +5,7 @@ import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class directory {
@@ -32,7 +33,7 @@ public class directory {
 
         postgresConn dbconn = new postgresConn();
         Connection conn = dbconn.getConnection();
-        if(conn!=null) {
+        if(conn!=null)  {
             String sql = "INSERT INTO campus.campus (name,email,password,cpassword) VALUES (?,?,?,?)";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, nameval);
@@ -41,9 +42,51 @@ public class directory {
             stmt.setString(4, hashedPassword);
             stmt.executeUpdate();
             stmt.close();
-            conn.close();
         } else{
             System.err.println("Error: connection is null");
+        }
+    }
+    public static void insertStudentDetails(String regNumber) throws SQLException {
+        StudentDetails details = StudentDetails.extractStudentDetails(regNumber);
+        postgresConn dbconn = new postgresConn();
+        Connection conn = dbconn.getConnection();
+        if(conn!=null)  {
+            String sql = "INSERT INTO campus.student(regNumber, courseName, Year) VALUES (?,?,?)";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1,regNumber);
+            stmt.setString(2,details.deptName);
+            stmt.setInt(3,details.yearOfStudy);
+            stmt.executeUpdate();
+            conn.close();
+        }
+    }
+    public static Boolean confirmUser(String loginPassword, String loginEmail) throws SQLException {
+        BCryptPasswordUtil passwordUtil = new BCryptPasswordUtil();
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            postgresConn dbconn = new postgresConn();
+            conn = dbconn.getConnection();
+            String sql = "SELECT * FROM campus.campus WHERE email = ?";
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, loginEmail);
+            rs = stmt.executeQuery();
+            if(rs.next()) {
+                String hashedPassword = rs.getString(loginPassword);
+                return passwordUtil.checkPassword(loginPassword, hashedPassword);
+            }
+            else {
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+        } finally {
+            if (rs != null) rs.close();
+            if (stmt != null) stmt.close();
+            if (conn != null) conn.close();
         }
     }
 }
