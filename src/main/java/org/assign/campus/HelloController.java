@@ -15,6 +15,7 @@ public class HelloController {
     public Button register;
     public GridPane gridPane;
     public TextField regNo;
+    private String loggedInEmail;
     @FXML
     private Label welcomeText, textfield, text;
     @FXML
@@ -50,11 +51,18 @@ public class HelloController {
 
         try{
             boolean isAuthenticated = confirmUser(loginPassword, loginEmail);
-            if (isAuthenticated)  showAlert(Alert.AlertType.INFORMATION, "Login Successful", "Welcome!");
+            if (isAuthenticated) {
+                showAlert(Alert.AlertType.INFORMATION, "Login Successful", "Welcome!");
+                loggedInEmail = loginEmail;
+                StudentController studentController = new StudentController(loggedInEmail);
+            }
             else showAlert(Alert.AlertType.ERROR, "Login Failed", "Invalid email or password.");
         } catch (SQLException e) {
             showAlert(Alert.AlertType.ERROR, "Error", "An error occurred during authentication: " + e.getMessage());            System.out.println("An error occurred during authentication: " + e.getMessage());
         }
+    }
+    public String getLoggedInEmail(){
+        return loggedInEmail;
     }
     private void showAlert(Alert.AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);

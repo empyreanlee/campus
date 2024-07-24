@@ -1,8 +1,6 @@
 package org.assign.campus;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class postgresConn {
     String url = "jdbc:postgresql://localhost:5432/Campus";
@@ -17,5 +15,10 @@ public class postgresConn {
             e.printStackTrace();
         }
         return conn;
+    }
+    public static void close(Connection conn, Statement stmt, ResultSet rs) throws SQLException {
+        if(rs != null) rs.close();
+        if(stmt != null) stmt.close();
+        if(conn != null) conn.close();
     }
 }

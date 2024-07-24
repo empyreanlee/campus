@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81465583-961f-4d75-9f01-b185178e35a0" name="Changes" comment="semester">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/assign/campus/RegisterCourses.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/assign/campus/SignUp.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/assign/campus/student_page.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/assign/campus/FirebaseInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/StudentDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/assign/campus/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/assign/campus/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/assign/campus/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/StudentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/assign/campus/directory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/directory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/assign/campus/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/assign/campus/sign.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/assign/campus/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/assign/campus/home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/assign/campus/trial.fxml" beforeDir="false" />
-    </list>
+    <list default="true" id="81465583-961f-4d75-9f01-b185178e35a0" name="Changes" comment="courses" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,8 +16,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -142,6 +127,7 @@
       <workItem from="1721372778945" duration="324000" />
       <workItem from="1721380364052" duration="1368000" />
       <workItem from="1721651953611" duration="12101000" />
+      <workItem from="1721720057422" duration="19515000" />
     </task>
     <task id="LOCAL-00001" summary="semester">
       <option name="closed" value="true" />
@@ -159,7 +145,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721246948457</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="courses">
+      <option name="closed" value="true" />
+      <created>1721761627776</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1721761627853</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,6 +162,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="semester" />
-    <option name="LAST_COMMIT_MESSAGE" value="semester" />
+    <MESSAGE value="courses" />
+    <option name="LAST_COMMIT_MESSAGE" value="courses" />
   </component>
 </project>

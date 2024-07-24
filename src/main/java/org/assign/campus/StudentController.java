@@ -14,11 +14,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import static org.assign.campus.courseDir.getRegNobyEmail;
 import static org.assign.campus.courseDir.registerCourses;
 
 public class StudentController implements Initializable {
     public Button register;
     public GridPane gridPane;
+    private final String email;
 
     @FXML
     private ListView<String> listView1;
@@ -27,6 +29,11 @@ public class StudentController implements Initializable {
 
     private final ArrayList<String> selectedCourses = new ArrayList<>();
     private final ArrayList<String> selectedCourses2 = new ArrayList<>();
+
+    public StudentController(String email) {
+        this.email = email;
+
+    }
 
 
 
@@ -40,24 +47,27 @@ public class StudentController implements Initializable {
         for (String course : selectedCourses){
             System.out.println(course);
         }
-        try{
-            registerCourses(selectedCourses);
-            showAlert(Alert.AlertType.CONFIRMATION, "Registration Successful", "Courses registered successfully!");
-        } catch (SQLException e){
-            showAlert(Alert.AlertType.ERROR, "Error", "An error occurred during course registration: " + e.getMessage());
-        }
+
 
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String[] courses1 ={"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
         String[] courses2 ={"Mond", "Tuesday", "Wednesday", "Thursday", "Friday"};
+        listView1.getItems().addAll(courses1);listView2.getItems().addAll(courses2);
+        listView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);listView2.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
-        listView1.getItems().addAll(courses1);
-        listView2.getItems().addAll(courses2);
-        listView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        listView2.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-
+        try{
+            String regNumber = getRegNobyEmail(email);
+            int studentId = courseDir.getStudentIdByRegNo(regNumber);
+            if (studentId == -1) {
+                registerCourses(studentId, selectedCourses);
+                showAlert(Alert.AlertType.CONFIRMATION, "Registration Successful", "Courses registered successfully!");
+            } else showAlert(Alert.AlertType.ERROR, "Error", "Student not found!");
+        } catch (SQLException e){
+            showAlert(Alert.AlertType.ERROR, "Error", "An error occurred during course registration: " + e.getMessage());
+        }
     }
     private void showAlert(Alert.AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);
