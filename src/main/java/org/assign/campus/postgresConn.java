@@ -3,9 +3,9 @@ package org.assign.campus;
 import java.sql.*;
 
 public class postgresConn {
-    String url = "jdbc:postgresql://localhost:5432/Campus";
-    String user = System.getenv("DB_USER");
-    String password = System.getenv("DB_PASS");
+    final String url = "jdbc:postgresql://localhost:5432/Campus";
+    final String user = System.getenv("DB_USER");
+    final String password = System.getenv("DB_PASS");
 
     public Connection getConnection() {
         Connection conn = null;

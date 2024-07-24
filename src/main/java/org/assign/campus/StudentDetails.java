@@ -4,9 +4,9 @@ package org.assign.campus;
 import java.time.Year;
 
 public class StudentDetails {
-    public String schoolName;
-    public String deptName;
-    public int yearOfStudy;
+    public final String schoolName;
+    public final String deptName;
+    public final int yearOfStudy;
     public StudentDetails(String schoolName, String deptName, int yearOfStudy) {
         this.schoolName = schoolName;
         this.deptName = deptName;
@@ -46,5 +46,5 @@ public class StudentDetails {
     }
 
 
-    
+
 }

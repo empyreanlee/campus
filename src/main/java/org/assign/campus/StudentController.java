@@ -14,8 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import static org.assign.campus.courseDir.getRegNobyEmail;
-import static org.assign.campus.courseDir.registerCourses;
+import static org.assign.campus.course_directory.getRegNobyEmail;
+import static org.assign.campus.course_directory.registerCourses;
+import static org.assign.campus.course_directory.getStudentIdByRegNo;
 
 public class StudentController implements Initializable {
     public Button register;
@@ -60,7 +61,7 @@ public class StudentController implements Initializable {
 
         try{
             String regNumber = getRegNobyEmail(email);
-            int studentId = courseDir.getStudentIdByRegNo(regNumber);
+            int studentId = getStudentIdByRegNo(regNumber);
             if (studentId == -1) {
                 registerCourses(studentId, selectedCourses);
                 showAlert(Alert.AlertType.CONFIRMATION, "Registration Successful", "Courses registered successfully!");
