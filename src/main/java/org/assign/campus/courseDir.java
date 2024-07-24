@@ -73,7 +73,7 @@ public class courseDir {
 
                 for (int i = 0; i < selectedCourses.size(); i++){
                     stmt.setString(i + 1, selectedCourses.get(i));
-                stmt.addBatch();
+                    stmt.addBatch();
                 }
                 stmt.setInt(6, studentId);
                 stmt.executeUpdate();
