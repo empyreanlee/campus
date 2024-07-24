@@ -13,38 +13,27 @@ public class StudentDetails {
         this.yearOfStudy = yearOfStudy;
 
     }
-    public static StudentDetails extractStudentDetails(String regNumber )  {
+    public static StudentDetails extractStudentDetails(String regNumber)  {
         Year year = Year.now();
         String schoolCode = regNumber.substring(0,1);
         String deptCode = regNumber.substring(1,4);
         int regYear = Integer.parseInt(regNumber.substring(regNumber.length()-4));
         int currentYear = year.getValue();
         int yearOfStudy = currentYear - regYear;
-        String schoolName;
-        switch(schoolCode){
-            case "C":
-                schoolName = "Computing";
-            case "H":
-                schoolName = "HealthScience";
-            case "E":
-                schoolName = "Engineering";
-            case "S":
-                schoolName = "Science";
-            case "G":
-                schoolName = "Geomatics";
-            default:
-                schoolName = "Unknown";
-        }
-        String deptName;
-        switch(deptCode){
-            case "026": deptName = "Computer Science";
-            case "027": deptName = "IT";
-            case "033": deptName = "Electrical Engineering";
-            default: deptName = "Unknown";
-        }
-        return new StudentDetails(schoolName, deptName, yearOfStudy);
+        String schoolName = switch(schoolCode){
+            case "C" -> "Computing";
+            case "H" -> "HealthScience";
+            case "E" -> "Engineering";
+            case "S" -> "Science";
+            case "G" -> "Geomatics";
+            default  ->"Unknown";
+        };
+        String deptName = switch (deptCode) {
+			case "026" -> "Computer Science";
+			case "027" -> "IT";
+			case "033" -> "Electrical Engineering";
+			default -> "Unknown";
+		};
+		return new StudentDetails(schoolName, deptName, yearOfStudy);
     }
-
-
-
 }

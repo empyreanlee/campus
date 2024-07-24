@@ -47,6 +47,7 @@ public class directory {
             stmt.setString(4, hashedPassword);
             stmt.executeUpdate();
             stmt.close();
+            conn.close();
         } else {
             System.err.println("Error: connection is null");
         }
@@ -57,12 +58,13 @@ public class directory {
         postgresConn dbconn = new postgresConn();
         Connection conn = dbconn.getConnection();
         if (conn != null) {
-            String sql = "INSERT INTO campus.student(regNumber, courseName, Year) VALUES (?,?,?)";
+            String sql = "INSERT INTO campus.student(course_name,year,reg_number) VALUES (?,?,?)";
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, regNumber);
-            stmt.setString(2, details.deptName);
-            stmt.setInt(3, details.yearOfStudy);
+            stmt.setString(1, details.deptName);
+            stmt.setInt(2, details.yearOfStudy);
+            stmt.setString(3, regNumber);
             stmt.executeUpdate();
+            stmt.close();
             conn.close();
         }
     }

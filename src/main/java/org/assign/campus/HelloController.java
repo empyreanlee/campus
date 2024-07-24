@@ -5,21 +5,19 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
 
 import java.sql.SQLException;
 
 import static org.assign.campus.directory.*;
 
 public class HelloController {
-    public Button register;
-    public GridPane gridPane;
     public TextField regNo;
+    public Label welcomeText;
     private String loggedInEmail;
     @FXML
-    private Label welcomeText, textfield, text;
+    private Label  text;
     @FXML
-    private TextField textField, name,password, email, confpassword;
+    private TextField  name,password, email, confpassword;
     @FXML
     private Button submit;
 
@@ -32,12 +30,11 @@ public class HelloController {
         String cpassword = confpassword.getText();
 
         if (!password.getText().equals(confpassword.getText()))
-            text.setText("Passwords do not match!");
+            welcomeText.setText("Passwords do not match!");
         else {
             try {
                 insertUser(nameval, emailval, passwordval, cpassword);
                 insertStudentDetails(regNumber);
-                text.setText("User successfully added!");
                 showAlert(Alert.AlertType.INFORMATION, "Success", "Registration Success: ");
             } catch (SQLException e) {
                 showAlert(Alert.AlertType.ERROR, "Error", "An error occurred during registration: " + e.getMessage());

@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81465583-961f-4d75-9f01-b185178e35a0" name="Changes" comment="courses" />
+    <list default="true" id="81465583-961f-4d75-9f01-b185178e35a0" name="Changes" comment="dependencies update">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/assign/campus/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/assign/campus/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/assign/campus/StudentDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/StudentDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/assign/campus/directory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/directory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/assign/campus/SignUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/assign/campus/SignUp.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,6 +56,7 @@
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StudentDetails.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
@@ -59,11 +67,22 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/&quot;: [
+      &quot;PostgreSQL&quot;
+    ]
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.assign.campus" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.HelloApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <envs>
@@ -128,6 +147,7 @@
       <workItem from="1721380364052" duration="1368000" />
       <workItem from="1721651953611" duration="12101000" />
       <workItem from="1721720057422" duration="19515000" />
+      <workItem from="1721794953583" duration="17607000" />
     </task>
     <task id="LOCAL-00001" summary="semester">
       <option name="closed" value="true" />
@@ -153,7 +173,31 @@
       <option name="project" value="LOCAL" />
       <updated>1721761627853</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add courses">
+      <option name="closed" value="true" />
+      <created>1721805075739</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1721805075739</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add courses">
+      <option name="closed" value="true" />
+      <created>1721805563871</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1721805563871</updated>
+    </task>
+    <task id="LOCAL-00006" summary="dependencies update">
+      <option name="closed" value="true" />
+      <created>1721811426164</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1721811426164</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,6 +207,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="semester" />
     <MESSAGE value="courses" />
-    <option name="LAST_COMMIT_MESSAGE" value="courses" />
+    <MESSAGE value="add courses" />
+    <MESSAGE value="dependencies update" />
+    <option name="LAST_COMMIT_MESSAGE" value="dependencies update" />
   </component>
 </project>
