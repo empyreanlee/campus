@@ -1,5 +1,6 @@
 package org.assign.campus;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -8,20 +9,19 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.layout.GridPane;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import static org.assign.campus.course_directory.getRegNobyEmail;
-import static org.assign.campus.course_directory.registerCourses;
-import static org.assign.campus.course_directory.getStudentIdByRegNo;
+import static org.assign.campus.course_directory.*;
 
 public class StudentController implements Initializable {
     public Button register;
     public GridPane gridPane;
-    private final String email;
+    private String email;
 
     @FXML
     private ListView<String> listView1;
@@ -31,25 +31,32 @@ public class StudentController implements Initializable {
     private final ArrayList<String> selectedCourses = new ArrayList<>();
     private final ArrayList<String> selectedCourses2 = new ArrayList<>();
 
-    public StudentController(String email) {
+    public void initialize(String email) {
         this.email = email;
-
     }
 
-
-
     @FXML
-    protected void onRegisterButtonClick() {
+    protected void onRegisterBtnClick(ActionEvent event) throws IOException {
         List<String> selectedItems = listView1.getSelectionModel().getSelectedItems();
         List<String> selectedItems2 = listView2.getSelectionModel().getSelectedItems();
         selectedCourses.clear();
         selectedCourses.addAll(selectedItems);
         selectedCourses2.addAll(selectedItems2);
-        for (String course : selectedCourses){
-            System.out.println(course);
+
+        try {
+            String regNumber = getRegNobyEmail(email);
+            if (regNumber != null) {
+                int studentId = getStudentIdByRegNo(regNumber);
+                if (studentId != -1) {
+                    registerCourses(studentId, selectedCourses);
+                    showAlert(Alert.AlertType.CONFIRMATION, "Registration Successful", "Courses registered successfully!");
+                } else showAlert(Alert.AlertType.ERROR, "Error", "Student not found!");
+            } else showAlert(Alert.AlertType.ERROR, "Error", "Registration number not found for the user.");
+        } catch (SQLException e) {
+            showAlert(Alert.AlertType.ERROR, "Error", "An error occurred during course registration: " + e.getMessage());
         }
-
-
+        MainController mainController = new MainController();
+        mainController.switchToPage(event);
     }
 
     @Override
@@ -58,17 +65,6 @@ public class StudentController implements Initializable {
         String[] courses2 ={"Mond", "Tuesday", "Wednesday", "Thursday", "Friday"};
         listView1.getItems().addAll(courses1);listView2.getItems().addAll(courses2);
         listView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);listView2.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-
-        try{
-            String regNumber = getRegNobyEmail(email);
-            int studentId = getStudentIdByRegNo(regNumber);
-            if (studentId == -1) {
-                registerCourses(studentId, selectedCourses);
-                showAlert(Alert.AlertType.CONFIRMATION, "Registration Successful", "Courses registered successfully!");
-            } else showAlert(Alert.AlertType.ERROR, "Error", "Student not found!");
-        } catch (SQLException e){
-            showAlert(Alert.AlertType.ERROR, "Error", "An error occurred during course registration: " + e.getMessage());
-        }
     }
     private void showAlert(Alert.AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);

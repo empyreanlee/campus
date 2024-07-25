@@ -8,6 +8,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import static org.assign.campus.course_directory.getRegNobyEmail;
+import static org.assign.campus.course_directory.getStudentIdByRegNo;
+
 public class directory {
     interface PasswordUtil {
         String encryptPassword(String password);
@@ -95,6 +98,20 @@ public class directory {
             postgresConn.close(conn, stmt, rs);
         }
     }
+    public static Boolean isRegisteredCourses(String email) throws SQLException {
+        String regNumber = getRegNobyEmail(email);
+        if (regNumber == null) return false;
+
+        int studentId = getStudentIdByRegNo(regNumber);
+        if (studentId == -1) return false;
+        return hasRegisteredCourses(studentId);
+    }
+
+    private static Boolean hasRegisteredCourses(int studentId) {
+        //TODO implement hasRegisteredCourses
+        return null;
+    }
+
 }
 
 

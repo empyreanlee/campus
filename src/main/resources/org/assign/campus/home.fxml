@@ -6,7 +6,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="550.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.assign.campus.StudentController">
+<AnchorPane prefHeight="550.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.assign.campus.HelloController">
    <VBox layoutX="-1.0" prefHeight="486.0" prefWidth="122.0" AnchorPane.leftAnchor="-1.0">
       <padding>
          <Insets bottom="20.0" left="5" right="5" top="20" />
@@ -82,7 +83,7 @@
          </Label>
       </top>
       <center>
-         <Button fx:id="register" onAction="#onRegisterButtonClick" prefHeight="25.0" prefWidth="101.0" style="-fx-background-color: skyblue;" text="Register" BorderPane.alignment="CENTER_LEFT">
+         <Button fx:id="register" onAction="#onBtnClick" prefHeight="25.0" prefWidth="101.0" style="-fx-background-color: skyblue;" text="Register" BorderPane.alignment="CENTER_LEFT">
             <padding>
                <Insets left="5.0" />
             </padding>
