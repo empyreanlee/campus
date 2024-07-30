@@ -8,8 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import static org.assign.campus.course_directory.getRegNobyEmail;
-import static org.assign.campus.course_directory.getStudentIdByRegNo;
+import static org.assign.campus.course_directory.*;
 
 public class directory {
     interface PasswordUtil {
@@ -56,16 +55,19 @@ public class directory {
         }
     }
 
-    public static void insertStudentDetails(String regNumber) throws SQLException {
+    public static void insertStudentDetails(String regNumber, String email) throws SQLException {
+        int detailsId = getDetailsIdById(email);
+        if (detailsId == -1) throw new SQLException("Student details not found");
         StudentDetails details = StudentDetails.extractStudentDetails(regNumber);
         postgresConn dbconn = new postgresConn();
         Connection conn = dbconn.getConnection();
         if (conn != null) {
-            String sql = "INSERT INTO campus.student(course_name,year,reg_number) VALUES (?,?,?)";
+            String sql = "INSERT INTO campus.student(course_name,year,reg_number, details_id) VALUES (?,?,?,?)";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, details.deptName);
             stmt.setInt(2, details.yearOfStudy);
             stmt.setString(3, regNumber);
+            stmt.setInt(4,detailsId);
             stmt.executeUpdate();
             stmt.close();
             conn.close();
@@ -86,14 +88,13 @@ public class directory {
             stmt.setString(1, loginEmail);
             rs = stmt.executeQuery();
             if (rs.next()) {
-                String hashedPassword = rs.getString(loginPassword);
+                String hashedPassword = rs.getString("password");
                 return passwordUtil.checkPassword(loginPassword, hashedPassword);
             } else {
                 return false;
             }
         } catch (SQLException e) {
-            e.printStackTrace();
-            throw e;
+            throw new RuntimeException(e);
         } finally {
             postgresConn.close(conn, stmt, rs);
         }
@@ -107,9 +108,28 @@ public class directory {
         return hasRegisteredCourses(studentId);
     }
 
-    private static Boolean hasRegisteredCourses(int studentId) {
-        //TODO implement hasRegisteredCourses
-        return null;
+    private static Boolean hasRegisteredCourses(int studentId) throws SQLException {
+        postgresConn dbCon = new postgresConn();
+        Connection conn =  null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        boolean isRegistered = false;
+        try{
+            conn = dbCon.getConnection();
+            if (conn != null){
+                String sql = "SELECT 1 FROM campus.semester1 where student_id = ?";
+                stmt = conn.prepareStatement(sql);
+                stmt.setInt(1,studentId);
+                rs = stmt.executeQuery();
+                if (rs.next())
+                    isRegistered = true;
+            }
+        } catch (Exception e) {
+			throw new RuntimeException(e);
+		} finally {
+            postgresConn.close(conn, stmt, rs);
+        }
+		return isRegistered;
     }
 
 }

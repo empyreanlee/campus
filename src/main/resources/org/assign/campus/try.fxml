@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.assign.campus.studentPageController"
+            prefHeight="600.0" prefWidth="800.0">
+
+    <VBox spacing="20" padding="20" alignment="TOP_CENTER">
+
+        <!-- Student Information Section -->
+        <HBox spacing="10" alignment="CENTER">
+            <ImageView fx:id="profilePicture" fitWidth="100" fitHeight="100"/>
+            <VBox spacing="5" alignment="CENTER_LEFT">
+                <HBox spacing="5">
+                    <Label text="Name: "/>
+                    <Label fx:id="studentName"/>
+                </HBox>
+                <HBox spacing="5">
+                    <Label text="Registration Number: "/>
+                    <Label fx:id="regNumber"/>
+                </HBox>
+                <HBox spacing="5">
+                    <Label text="Email: "/>
+                    <Label fx:id="mail"/>
+                </HBox>
+            </VBox>
+        </HBox>
+
+        <Separator/>
+
+        <!-- Academic Details Section -->
+        <VBox spacing="10" alignment="CENTER">
+            <Label text="Courses"/>
+            <ListView fx:id="courseList"/>
+            <Label text="Grades"/>
+            <TableView fx:id="gradesTable">
+                <!-- Define columns here -->
+            </TableView>
+        </VBox>
+
+        <Separator/>
+
+        <!-- Schedule and Calendar Section -->
+        <VBox spacing="10" alignment="CENTER">
+            <Label text="Class Schedule"/>
+            <TableView fx:id="scheduleTable">
+                <!-- Define columns here -->
+            </TableView>
+            <Label text="Important Dates"/>
+            <ListView fx:id="importantDatesList"/>
+        </VBox>
+
+        <Separator/>
+
+        <!-- Notifications and Messages Section -->
+        <VBox spacing="10" alignment="CENTER">
+            <Label text="Notifications"/>
+            <ListView fx:id="notificationsList"/>
+            <Label text="Messages"/>
+            <ListView fx:id="messagesList"/>
+        </VBox>
+    </VBox>
+
+</AnchorPane>

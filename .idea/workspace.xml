@@ -5,15 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81465583-961f-4d75-9f01-b185178e35a0" name="Changes" comment="details complete">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/studentPageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/assign/campus/lecturerPage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/assign/campus/trial.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/assign/campus/try.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/assign/campus/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/assign/campus/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/assign/campus/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/assign/campus/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/assign/campus/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/studentCourseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/assign/campus/StudentDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/StudentDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/assign/campus/course_directory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/course_directory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/assign/campus/directory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/directory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/assign/campus/RegisterCourses.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/assign/campus/RegisterCourses.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/assign/campus/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/assign/campus/home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/assign/campus/SignUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/assign/campus/SignUp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/assign/campus/sign.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/assign/campus/sign.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/assign/campus/student_page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/assign/campus/student_page.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +34,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -55,33 +63,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.HelloApplication.executor": "Run",
-    "Application.StudentDetails.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "IntelliLang.Configuration",
-    "show.migrate.to.gradle.popup": "false",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StudentDetails.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;IntelliLang.Configuration&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/": [
-      "PostgreSQL"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/&quot;: [
+      &quot;PostgreSQL&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.assign.campus" />
@@ -153,7 +164,10 @@
       <workItem from="1721720057422" duration="19515000" />
       <workItem from="1721794953583" duration="30105000" />
       <workItem from="1721926401530" duration="956000" />
-      <workItem from="1721931449198" duration="2769000" />
+      <workItem from="1721931449198" duration="3343000" />
+      <workItem from="1721968135138" duration="10731000" />
+      <workItem from="1722095403222" duration="3860000" />
+      <workItem from="1722265313808" duration="23649000" />
     </task>
     <task id="LOCAL-00001" summary="semester">
       <option name="closed" value="true" />
@@ -211,7 +225,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721817518483</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="details complete">
+      <option name="closed" value="true" />
+      <created>1721934845923</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1721934845923</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

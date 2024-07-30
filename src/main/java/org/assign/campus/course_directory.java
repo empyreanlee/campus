@@ -19,16 +19,16 @@ public class course_directory {
 		try {
 			conn = dbConn.getConnection();
 			if (conn != null) {
-				String sql = "SELECT \"regNumber\" FROM campus.student WHERE id = (SELECT id FROM campus.campus WHERE email = ?)";
+				String sql = "SELECT s.reg_number FROM campus.student s "+
+						"JOIN campus.campus c ON s.details_id = c.id WHERE c.email = ?";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, email);
 				rs = pstmt.executeQuery();
 
-				if (rs.next()) regNumber = rs.getString("regNumber");
+				if (rs.next()) regNumber = rs.getString("reg_number");
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
-			throw e;
+			throw new RuntimeException(e);
 		} finally {
 			postgresConn.close(conn, pstmt, rs);
 		}
@@ -45,7 +45,7 @@ public class course_directory {
 		try {
 			conn = dbConn.getConnection();
 			if (conn != null) {
-				String sql = "SELECT id FROM campus.student WHERE \"regNumber\" = ?";
+				String sql = "SELECT id FROM campus.student WHERE \"reg_number\" = ?";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, regNumber);
 				rs = pstmt.executeQuery();
@@ -53,8 +53,7 @@ public class course_directory {
 				if (rs.next()) studentId = rs.getInt("id");
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
-			throw e;
+			throw new RuntimeException(e);
 		} finally {
 			postgresConn.close(conn, pstmt, rs);
 		}
@@ -83,7 +82,30 @@ public class course_directory {
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		} finally {
-			postgresConn.close(conn, stmt, rs);
+			postgresConn.close(conn, stmt, null);
 		}
+	}
+	public static int getDetailsIdById(String email) throws SQLException {
+		postgresConn dbConn = new postgresConn();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int detailsId = -1;
+		try {
+			conn = dbConn.getConnection();
+			if (conn != null) {
+				String sql = "SELECT id FROM campus.campus WHERE email = ?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, email);
+				rs = pstmt.executeQuery();
+
+				if (rs.next()) detailsId = rs.getInt("id");
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			postgresConn.close(conn, pstmt, rs);
+		}
+		return detailsId;
 	}
 }
