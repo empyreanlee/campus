@@ -43,11 +43,11 @@ public class MainController {
         stage.show();
     }
 
-    public void switchToHome(ActionEvent event, String email) throws IOException {
-        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("home.fxml")));
+    public void switchToLecturer(ActionEvent event, String email) throws IOException {
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("lecturerPage.fxml")));
         root = loader.load();
 
-        studentCourseController controller = loader.getController();
+        lecturerPageController controller = loader.getController();
         controller.initialize(email);
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -55,4 +55,5 @@ public class MainController {
         stage.setScene(scene);
         stage.show();
     }
+
 }

@@ -11,6 +11,10 @@ import java.sql.SQLException;
 import static org.assign.campus.course_directory.*;
 
 public class directory {
+    static Connection conn;
+    static PreparedStatement stmt;
+    static ResultSet rs;
+    static postgresConn dbConn = new postgresConn();
     interface PasswordUtil {
         String encryptPassword(String password);
 
@@ -35,9 +39,8 @@ public class directory {
 
         BCryptPasswordUtil passwordUtil = new BCryptPasswordUtil();
         String hashedPassword = passwordUtil.encryptPassword(passwordval);
-
-        postgresConn dbconn = new postgresConn();
-        Connection conn = dbconn.getConnection();
+        dbConn = new postgresConn();
+        Connection conn = dbConn.getConnection();
         if (conn != null) {
             String sql = "INSERT INTO campus.campus (name,email,password,cpassword) VALUES (?,?,?,?)";
             String query = "SELECT \"regNumber\" FROM campus.student WHERE id = (SELECT id FROM campus.campus WHERE email = ?)";
@@ -59,8 +62,8 @@ public class directory {
         int detailsId = getDetailsIdById(email);
         if (detailsId == -1) throw new SQLException("Student details not found");
         StudentDetails details = StudentDetails.extractStudentDetails(regNumber);
-        postgresConn dbconn = new postgresConn();
-        Connection conn = dbconn.getConnection();
+        dbConn = new postgresConn();
+        conn = dbConn.getConnection();
         if (conn != null) {
             String sql = "INSERT INTO campus.student(course_name,year,reg_number, details_id) VALUES (?,?,?,?)";
             PreparedStatement stmt = conn.prepareStatement(sql);
@@ -69,20 +72,38 @@ public class directory {
             stmt.setString(3, regNumber);
             stmt.setInt(4,detailsId);
             stmt.executeUpdate();
-            stmt.close();
-            conn.close();
+            stmt.close();conn.close();
         }
     }
+    public static void insertLecturerDetails(String lecturer_uid, String email) throws SQLException {
+        int lecId = getDetailsIdById(email);
+        if (lecId == -1) throw new SQLException("Lecturer details not found");
+        StudentDetails.LecturerDetails details = StudentDetails.LecturerDetails.extractLecturerDetails(lecturer_uid);
+        dbConn = new postgresConn();
+        conn = null; stmt = null;
+        try {
+            conn = dbConn.getConnection();
+            String sql = "INSERT INTO campus.lecturer(lecturer_uid, department, lec_id ,course) VALUES (?,?,?,?)";
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, lecturer_uid);
+            stmt.setString(2, details.deptName);
+            stmt.setInt(3,lecId);
+            stmt.setString(4, email);
+            stmt.executeUpdate();
+            stmt.close();conn.close();
+
+        } catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
 
     public static Boolean confirmUser(String loginPassword, String loginEmail) throws SQLException {
         BCryptPasswordUtil passwordUtil = new BCryptPasswordUtil();
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
+        conn = null;stmt = null;rs = null;
+        dbConn = new postgresConn();
 
         try {
-            postgresConn dbconn = new postgresConn();
-            conn = dbconn.getConnection();
+            conn = dbConn.getConnection();
             String sql = "SELECT * FROM campus.campus WHERE email = ?";
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, loginEmail);
@@ -109,13 +130,11 @@ public class directory {
     }
 
     private static Boolean hasRegisteredCourses(int studentId) throws SQLException {
-        postgresConn dbCon = new postgresConn();
-        Connection conn =  null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
+        dbConn = new postgresConn();
+        conn =  null;stmt = null;rs = null;
         boolean isRegistered = false;
         try{
-            conn = dbCon.getConnection();
+            conn = dbConn.getConnection();
             if (conn != null){
                 String sql = "SELECT 1 FROM campus.semester1 where student_id = ?";
                 stmt = conn.prepareStatement(sql);

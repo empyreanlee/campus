@@ -33,11 +33,7 @@ public class studentCourseController implements Initializable {
 
     public void initialize(String email) {
         this.email = email;
-
-        System.out.println("Email set to: " + email); // Debugging line
-        if (email != null) {
-            top.setText(email);
-        }
+       // System.out.println("Email set to: " + email); // Debugging lineif (email != null) {top.setText(email);
     }
 
     @FXML
@@ -49,16 +45,23 @@ public class studentCourseController implements Initializable {
         selectedCourses2.addAll(selectedItems2);
 
         try {
+            if (selectedCourses.isEmpty() || selectedCourses2.isEmpty()){showAlert(Alert.AlertType.CONFIRMATION, "INFO", "Please select one of the following courses!");
+                return;}
+            if (selectedCourses.size()>5 && selectedCourses2.size()>5) { showAlert(Alert.AlertType.ERROR, "Error", "Select only 5 courses!");
+                return;}
             String regNumber = getRegNobyEmail(email);
             System.out.println("Reg set to: " + regNumber);
             if (regNumber != null) {
                 int studentId = getStudentIdByRegNo(regNumber);
                 if (studentId != -1) {
-                    registerCourses(studentId, selectedCourses);
+                    registerCourses(studentId, selectedCourses, selectedCourses2);
                     showAlert(Alert.AlertType.CONFIRMATION, "Registration Successful", "Courses registered successfully!");
+                    MainController mainController = new MainController();
+                    mainController.switchToStudentPage(event, email);
                 } else showAlert(Alert.AlertType.ERROR, "Error", "Student not found!");
-            } else showAlert(Alert.AlertType.ERROR, "Error", "Registration number not found for the user." );
-        } catch (SQLException e) {
+            } else showAlert(Alert.AlertType.ERROR, "Error", "Registration number not found for the user.");
+        }
+        catch (SQLException e) {
             showAlert(Alert.AlertType.ERROR, "Error", "An error occurred during course registration: " + e.getMessage());
         }
         MainController mainController = new MainController();
@@ -68,7 +71,7 @@ public class studentCourseController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         listView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        String[] courses1 ={"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
+        String[] courses1 ={"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
         String[] courses2 ={"Mond", "Tuesday", "Wednesday", "Thursday", "Friday"};
         listView1.getItems().addAll(courses1);listView2.getItems().addAll(courses2);
         listView2.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);

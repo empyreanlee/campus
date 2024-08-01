@@ -1,6 +1,5 @@
 package org.assign.campus;
 
-
 import java.time.Year;
 
 public class StudentDetails {
@@ -12,7 +11,6 @@ public class StudentDetails {
         this.schoolName = schoolName;
         this.deptName = deptName;
         this.yearOfStudy = yearOfStudy;
-
     }
 
     public static StudentDetails extractStudentDetails(String regNumber) {
@@ -24,7 +22,7 @@ public class StudentDetails {
         int yearOfStudy = currentYear - regYear;
         String schoolName = switch (schoolCode) {
             case "C" -> "Computing";
-            case "H" -> "HealthScience";
+            case "H" -> "Health Science";
             case "E" -> "Engineering";
             case "S" -> "Science";
             case "G" -> "Geomatics";
@@ -38,5 +36,37 @@ public class StudentDetails {
         };
         return new StudentDetails(schoolName, deptName, yearOfStudy);
     }
-}
 
+
+    public static class LecturerDetails {
+        public final String schoolName;
+        public final String deptName;
+
+        public LecturerDetails(String schoolName, String deptName) {
+            this.schoolName = schoolName;
+            this.deptName = deptName;
+        }
+
+
+
+        public static LecturerDetails extractLecturerDetails(String lecturerUid) {
+            String schoolCode = lecturerUid.substring(0, 1);
+            String deptCode = lecturerUid.substring(1, 5);
+            String schoolName = switch (schoolCode) {
+                case "C" -> "Computing";
+                case "H" -> "Health Science";
+                case "E" -> "Engineering";
+                case "S" -> "Science";
+                case "G" -> "Geomatics";
+                default -> "Unknown";
+            };
+            String deptName = switch (deptCode) {
+                case "CS50" -> "Computer Science";
+                case "IT60" -> "IT";
+                case "EE80" -> "Electrical Engineering";
+                default -> "Unknown";
+            };
+            return new LecturerDetails(schoolName, deptName);
+        }
+    }
+}
