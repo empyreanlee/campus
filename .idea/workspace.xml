@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81465583-961f-4d75-9f01-b185178e35a0" name="Changes" comment="details complete">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/lecturerPageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/assign/campus/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/assign/campus/StudentDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/StudentDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/assign/campus/course_directory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/course_directory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/assign/campus/directory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/directory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/assign/campus/studentCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/assign/campus/studentCourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/assign/campus/lecturerPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/assign/campus/lecturerPage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +153,7 @@
       <workItem from="1721968135138" duration="10731000" />
       <workItem from="1722095403222" duration="3860000" />
       <workItem from="1722265313808" duration="23649000" />
-      <workItem from="1722493280082" duration="22794000" />
+      <workItem from="1722493280082" duration="23715000" />
     </task>
     <task id="LOCAL-00001" summary="semester">
       <option name="closed" value="true" />
@@ -226,7 +219,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721934845923</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009">
+      <option name="closed" value="true" />
+      <created>1722544137259</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1722544137259</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
